@@ -1,0 +1,13 @@
+{
+    "textDescription": "A <b>React2Word</b> facilita a escrita de reações químicas para o Microsoft Word, permitindo o envio de uma ou várias reações químicas com apenas um clique.",
+    "titleInsertReaction": "Insira uma Reação Química",
+    "textReactants": "Reagentes:",
+    "textProducts": "Produtos:",
+    "textUploadCSV": "<b>Ou para mais de uma reação, faça upload de um arquivo CSV:</b>",
+    "textChooseFile": "Escolher arquivo",
+    "textButtonSend": "Enviar",
+    "titleResult": "Resultado",
+    "titleCopyToWord": "Copie para Word",
+    "textCopyButton": "Copiar",
+    "footerText": "&copy; 2024 React2Word. Todos os direitos reservados."
+}

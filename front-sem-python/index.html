@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React2Word</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
+    <script src="js/index.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container mt-1"><img src="React2Word.png" alt="react2word" width="253" height="121"></div>
+    </header>
+    <div class="wrapper"> 
+        <div class="container mt-5">
+            <p class="text" id="text-description">A <b>React2Word</b> facilita a escrita de reações químicas para o Microsoft Word, permitindo o envio de
+                uma ou várias reações químicas com apenas um clique.</p>
+        </div>
+        <section class="container mt-4">
+            <div class="subtitle" id="text-insert">Insira uma Reação Química</div>
+            <form id="reaction-form">
+                <div class="form-group">
+                    <label for="reactants" class="text" id="text-reactants">Reagentes:</label>
+                    <input type="text" class="form-control" id="reactants" placeholder="Ex: CH4 + 2O2">
+                </div>
+                <div class="reaction-arrow">→</div>
+                <div class="form-group">
+                    <label for="products" class="text" id="text-products">Produtos:</label>
+                    <input type="text" class="form-control" id="products" placeholder="Ex: CO2 + H2O">
+                </div>
+                <div class="form-group">
+                    <p class="text" id="text-csvupload"><b>Ou para mais de uma reação, faça upload de um arquivo CSV:</b></p>
+                    <label for="csvFile" class="button" id="text-choosefile">Escolher arquivo
+                    </label>
+                    <input type="file" class="form-control-file" id="csvFile" onchange="fileSelected()">
+                </div>
+                <button type="button" class="btn button" onclick="submitReaction()" id="button-send">Enviar</button>
+            </form>
+        </section>
+
+        <!-- Seção 2: Mostrar o resultado das reações químicas -->
+        <section class="container mt-5" id="section-reactions">
+            <div class="subtitle">Resultado</div>
+            <div id="reaction-result" class="alert alert-info reactions"> 
+                <!-- O resultado será exibido aqui -->
+                
+                <!---->
+            </div>  
+        </section>
+
+        <!-- Seção 3: Mostrar campo de texto enviado pelo backend -->
+        <section class="container mt-5" id="section-copy">
+            <div class="subtitle">Copie para Word</div>
+            <div class="input-group">
+                <input type="text" class="form-control" id="reaction-clipboard" readonly>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">Copiar</button>
+                </div>
+            </div>
+        </section>
+     </div>
+    <!---->
+    <footer>
+        <p id="text-footer">&copy; 2023 React2Word. Todos os direitos reservados.</p>
+    </footer>
+</body>
+
+</html>
