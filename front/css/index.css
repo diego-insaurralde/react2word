@@ -1,0 +1,100 @@
+.reaction-arrow {
+    margin:   10px;
+    font-size: 50px;
+    margin-bottom: -1%;
+    margin-top: -3%;
+    
+}
+
+* {
+    margin:0%;
+    padding: 0%;
+}
+
+
+header {
+    background-color: #cb8e5f; /* Cor de fundo do cabeçalho */
+    color: #fff; /* Cor do texto no cabeçalho */
+    padding: 20px; /* Espaçamento interno do cabeçalho */
+    text-align: left; /* Centralizar o texto */
+
+}
+
+section {
+    color: #2F1000;
+}
+
+.wrapper {
+    height: 100vh;
+    box-sizing:border-box;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+footer {
+    background-color: #cb8e5f;
+    font-weight: bold;
+    color: #ecf8d4;
+    text-align: center;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+    position:fixed;
+}
+
+
+
+.reactions {   
+    font-weight: bold;
+    font-size: 1.3em; 
+    text-align: left;
+}
+
+.subtitle {
+    font-weight: bold;
+    font-size: 1.7em;
+    padding-bottom: 20px ;
+}
+
+.text {
+    font-size: 1.2em;
+}
+
+input[type="file"] {
+    display: none;
+  }
+
+  /* Estilizando o rótulo personalizado */
+  .button {
+    background-color: #cb8e5f;
+    font-weight: bold;
+    color: #ecf8d4;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  /* Estilizando o rótulo quando o mouse passa por cima */
+  .button:hover {
+    background-color: #85685a;
+    color: black;
+  }
+
+  .alert {
+    background-color: #ecf8d4 ;
+  }
+
+  .btn-outline-secondary{
+    border-color: #cb8e5f;
+    color: #cb8e5f;  
+  }
+
+  .form-control[readonly]{
+    background-color: #ecf8d4 ;
+  }
+
+
+#section-copy2 {
+    visibility: hidden;
+}
