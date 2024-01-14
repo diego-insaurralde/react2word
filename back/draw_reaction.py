@@ -4,7 +4,7 @@ import csv
 class DrawReactionHTML:
     def __init__(self, reaction_data):
         self.reaction_data = reaction_data
-        
+
         self.isNewReaction = False
         self.reagents = []
         self.products = []
@@ -15,7 +15,7 @@ class DrawReactionHTML:
         
         self.header_html ='''
         <math xmlns="http://www.w3.org/1998/Math/MathML">
-        <mtable columnalign="left">
+        <mtable>
         '''
         
     def run(self):
@@ -93,7 +93,6 @@ class DrawReactionHTML:
                 current_count += c  # Acumula os dígitos para o número atual
             else:
                 if current_element:
-                    # Se já temos um elemento, encapsulamos o anterior
                     if current_count:
                         # Se temos um número, adicionamos como subscrito
                         new_s += f'<msub>{letter.format(current_element)}{num.format(current_count)}</msub>'
@@ -124,14 +123,9 @@ class DrawReactionHTML:
         value = value.replace('.', ',')
         return value
     
-    @staticmethod
-    def handle_csv(data_csv):
-        data_csv = data_csv.split('\r\n')
-        data_csv = csv.reader(data_csv, delimiter=';', doublequote=False)
-        data_csv = [tuple(line) for line in data_csv if line]
-        
-        return data_csv
-        
+    
+
+
 
 
 with open('back/reactions.csv', 'r') as f:
@@ -148,4 +142,3 @@ with open('file.html', 'w') as f:
 
 
 
-    

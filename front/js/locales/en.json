@@ -1,0 +1,32 @@
+{
+    "textDescription": "<b>React2Word</b> makes it easy to write chemical reactions for Microsoft Word, allowing you to submit one or multiple chemical reactions with just one click.",
+    "titleInsertReaction": "Insert a Chemical Reaction",
+    "textReactants": "Reactants:",
+    "textProducts": "Products:",
+    "textUploadCSV": "<b>For more than one reaction, upload a CSV file:</b>",
+    "textChooseFile": "Choose file",
+    "textButtonSend": "Submit",
+    "titleResult": "Result",
+    "titleCopyToWord": "Copy to Word",
+    "textCopyButton": "Copy",
+    "footerText": "&copy; 2024 React2Word. All rights reserved.",
+    "instructions": [
+        "Open Excel or a similar software.",
+        "Insert the components of each chemical reaction on separate lines.",
+        "In the first column, enter the stoichiometric coefficient; in the second column, enter the molecular formula.",
+        "Indicate a negative value for coefficients of reactants and a positive value for products.",
+        "Organize the reactions sequentially, listing the components on consecutive lines as below.",
+        "Afterward, save the file in CSV format."
+      ],
+      "errors": {
+        "serverErrors":{
+          "500": "Server failure, please try again.",
+          "415": "Invalid file. Please upload a valid CSV file. Check the instructions",
+          "400": "Invalid request, please check the reactants and products of the reaction and try again"
+        },
+        "frontErrors": {
+          "emptyValues": "Please enter the reactants and products of a reaction, or submit a valid CSV file that may contain one or more reactions.",
+          "formatInvalid": "The file format is invalid. Please send a file in a valid CSV format."
+        }
+      }
+}

@@ -8,15 +8,19 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/latest/normalize.css">
-    <script src="{{url_for('static', filename='js/index.js')}}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- <script src="{{url_for('static', filename='js/index.js')}}"></script> -->
+    <!-- <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}"> -->
+    <script src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 
 </head>
 
 <body>
     <header>
-        <div class="container mt-1"><img src="front/React2Word.png" alt="react2word" width="253" height="121"></div>
+        <div class="container mt-1"><img src="images/React2Word.png" alt="react2word" width="253" height="121"></div>
     </header>
     <div class="wrapper"> 
         <div class="container mt-5">
@@ -24,30 +28,56 @@
                 uma ou várias reações químicas com apenas um clique.</p>
         </div>
         <section class="container mt-4">
+            <hr/>
             <div class="subtitle" id="text-insert">Insira uma Reação Química</div>
-            <form id="reaction-form">
+            <div class="error-msg" id="error-empty-fields"></div>
+            <form id="reaction-form" onsubmit="event.preventDefault(); submitReaction();">
                 <div class="form-group">
                     <label for="reactants" class="text" id="text-reactants">Reagentes:</label>
-                    <input type="text" class="form-control" id="reactants" placeholder="Ex: CH4 + 2O2">
+                    <input type="text" class="form-control" id="reactants" placeholder="Ex: CH4 + 2O2" >
                 </div>
-                <div class="reaction-arrow">→</div>
+                <div class="reaction-arrow">→</div> 
                 <div class="form-group">
                     <label for="products" class="text" id="text-products">Produtos:</label>
-                    <input type="text" class="form-control" id="products" placeholder="Ex: CO2 + H2O">
+                    <input type="text"  class="form-control" id="products" placeholder="Ex: CO2 + H2O">
                 </div>
-                <div class="form-group">
+            <hr/>
+                <div class="form-group" id="file-upload">
                     <p class="text" id="text-csvupload"><b>Ou para mais de uma reação, faça upload de um arquivo CSV:</b></p>
-                    <label for="csvFile" class="button" id="text-choosefile">Escolher arquivo
-                    </label>
-                    <input type="file" class="form-control-file" id="csvFile" onchange="fileSelected()">
+                    <div class="row">
+                        <label for="csvFile" class="button" id="button-choosefile">Escolher arquivo </label>
+                        <input type="file" class="form-control-file" id="csvFile" name="csvFile" onchange="fileSelected()">
+                        
+                        <div class="tooltip-container" id="tooltip">
+                            <div class="tooltip-trigger">
+                                <i class="bi bi-info-circle-fill"></i>
+                            </div>  
+                            <div class="tooltip-content">
+                                <ul id="tooltip-csv-content">
+                                    <li>Insira os componentes de cada reação química em linhas separadas.</li>
+                                    <li>Na primeira coluna, insira o coeficiente estequiométrico; na segunda coluna, insira a fórmula molecular.</li>
+                                    <li>Indique o valor negativo do coeficiente para reagentes e positivo para produtos.</li>
+                                    <li>Organize as reações em sequência, listando os componentes em linhas consecutivas, conforme abaixo.</li>
+                                    <li>Após, salve o arquivo no formato CSV.</li>
+                                </ul>                                               
+                                <img src="images/example-csv.png" alt="Image Tooltip" width="550" height="275" class="image-encoding">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="button" class="btn button" onclick="submitReaction()" id="button-send">Enviar</button>
+                <div class="error-msg" id="error-invalid-format"></div>
+                <div id="submit">
+                    <button type="submit" class="btn button" id="button-send">Enviar</button>
+                </div>
+                <div class="error-msg" id="error-submit"></div>
             </form>
         </section>
 
         <!-- Seção 2: Mostrar o resultado das reações químicas -->
         <section class="container mt-5" id="section-reactions">
-            <div class="subtitle">Resultado</div>
+            <hr/>
+
+            <div class="subtitle" id ="title-result">Resultado</div>
             <div id="reaction-result" class="alert alert-info reactions"> 
                 <!-- O resultado será exibido aqui -->
                 
@@ -57,18 +87,37 @@
 
         <!-- Seção 3: Mostrar campo de texto enviado pelo backend -->
         <section class="container mt-5" id="section-copy">
-            <div class="subtitle">Copie para Word</div>
+            <hr/>
+            <div class="row">
+                <div class="subtitle" id="title-copy">Copie para Word</div>
+                <div class="tooltip-container" id="tooltip" onmouseover="restartGif()">
+                    <div class="tooltip-trigger">
+                        <i class="bi bi-info-circle-fill"></i>
+                    </div>  
+                    <div class="tooltip-content">                                        
+                        <img src="images/copy.gif" alt="Image Tooltip" width="850" height="500" class="image-encoding" id="tooltip-copy">
+                    </div>
+                </div>
+            </div>
             <div class="input-group">
                 <input type="text" class="form-control" id="reaction-clipboard" readonly>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()">Copiar</button>
+                    <button class="btn btn-outline-secondary" type="button" onclick="copyToClipboard()" id="button-copy">Copiar</button>
                 </div>
             </div>
         </section>
-     </div>
+    </div>
     <!---->
     <footer>
-        <p id="text-footer">&copy; 2023 React2Word. Todos os direitos reservados.</p>
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-auto text-center language" onclick="setLanguage('en')">English</div>
+                <div class="col-auto text-center language" onclick="setLanguage('es')">Español</div>
+                <div class="col-auto text-center language" onclick="setLanguage('pt')">Português</div>
+            </div>
+            <p id="text-footer">&copy; 2024 React2Word. Todos os direitos reservados.</p>
+        </div>
+
     </footer>
 </body>
 

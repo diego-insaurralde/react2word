@@ -1,0 +1,34 @@
+{
+    "textDescription": "<b>React2Word</b> facilita la escritura de reacciones químicas para Microsoft Word, permitiendo enviar una o varias reacciones químicas con solo un clic.",
+    "titleInsertReaction": "Insertar una Reacción Química",
+    "textReactants": "Reactivos:",
+    "textProducts": "Productos:",
+    "textUploadCSV": "<b>Para más de una reacción, sube un archivo CSV:</b>",
+    "textChooseFile": "Seleccionar archivo",
+    "textButtonSend": "Enviar",
+    "titleResult": "Resultado",
+    "titleCopyToWord": "Copiar a Word",
+    "textCopyButton": "Copiar",
+    "footerText": "&copy; 2024 React2Word. Todos los derechos reservados.",
+    "instructions": [
+        "Abre Excel u otro software similar.",
+        "Inserta los componentes de cada reacción química en líneas separadas.",
+        "En la primera columna, ingresa el coeficiente estequiométrico; en la segunda columna, ingresa la fórmula molecular.",
+        "Indica el valor negativo del coeficiente para los reactivos y positivo para los productos.",
+        "Organiza las reacciones en secuencia, listando los componentes en líneas consecutivas, como se indica a continuación.",
+        "Después, guarda el archivo en formato CSV."
+      ],
+      "errors": {
+        "serverErrors":{
+          "500": "Error del servidor, inténtelo de nuevo.",
+          "415": "Archivo no válido. Envíe un archivo CSV válido. Verifique las instrucciones.",
+          "400": "Solicitud inválida, por favor verifique los reactivos y productos de la reacción e inténtelo nuevamente."
+
+        },
+        "frontErrors": {
+          "emptyValues": "Favor de ingresar los reactivos y productos de una reacción, o enviar un archivo CSV válido que pueda contener una o más reacciones.",
+          "formatInvalid": "El formato de archivo no es válido. Por favor, envíe un archivo en un formato CSV válido."
+        }
+      }
+      
+}

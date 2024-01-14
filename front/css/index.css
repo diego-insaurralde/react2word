@@ -11,6 +11,13 @@
     padding: 0%;
 }
 
+body{
+  display: grid;
+  grid-template-rows: min-content 1fr min-content;
+  min-height: 100vh;
+  
+}
+
 
 header {
     background-color: #cb8e5f; /* Cor de fundo do cabeçalho */
@@ -25,9 +32,9 @@ section {
 }
 
 .wrapper {
-    height: 100vh;
+    /*min-height: 75vh; */ 
     box-sizing:border-box;
-    padding-bottom: 10px;
+    padding-bottom: 3rem;
     position: relative;
 }
 
@@ -36,14 +43,15 @@ footer {
     font-weight: bold;
     color: #ecf8d4;
     text-align: center;
-    padding: 15px;
-    bottom: 0;
+    padding: 0px;
     width: 100%;
-    position:fixed;
 }
 
 
-
+mtd {
+  padding: 5px;
+  text-align: left;
+}
 .reactions {   
     font-weight: bold;
     font-size: 1.3em; 
@@ -73,6 +81,8 @@ input[type="file"] {
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
+    /*transition: color 0.3s;*/ 
+    transition: all 0.3s;
   }
 
   /* Estilizando o rótulo quando o mouse passa por cima */
@@ -95,6 +105,68 @@ input[type="file"] {
   }
 
 
-#section-copy2 {
-    visibility: hidden;
+#section-copy {
+    display: none;
+}
+
+#section-reactions{
+  display: none;
+}
+
+.language {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s; 
+}
+
+.language:hover {
+  color: #85685a; 
+}
+
+.bi-info-circle-fill{
+  color: #cb8e5f;
+  margin-top: 10px;
+  margin-left: 5px;
+  font-size: x-large;
+
+}
+
+.tooltip-container {
+    position: relative;
+}
+
+.tooltip-trigger {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.tooltip-content {
+    display: none;
+    position: absolute;
+    background-color: #cb8e5f;
+    color: #fff;
+    padding-top: 45px;
+    padding: 10px;
+    z-index: 1;
+    bottom: -70px;
+    left: 15px;
+    border-radius: 5px;
+}
+
+.tooltip-container:hover .tooltip-content {
+    display: inline-block;
+}
+
+.row {
+  margin-left: 0;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.error-msg {
+  font-size: 12px;
+  color: red;
+  font-weight: bold;
 }

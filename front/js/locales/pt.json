@@ -1,13 +1,33 @@
 {
-    "textDescription": "A <b>React2Word</b> facilita a escrita de reações químicas para o Microsoft Word, permitindo o envio de uma ou várias reações químicas com apenas um clique.",
+    "textDescription": "<b>React2Word</b> facilita a escrita de reações químicas para o Microsoft Word, permitindo o envio de uma ou várias reações químicas com apenas um clique.",
     "titleInsertReaction": "Insira uma Reação Química",
     "textReactants": "Reagentes:",
     "textProducts": "Produtos:",
-    "textUploadCSV": "<b>Ou para mais de uma reação, faça upload de um arquivo CSV:</b>",
+    "textUploadCSV": "<b>Para mais de uma reação, faça upload de um arquivo CSV:</b>",
     "textChooseFile": "Escolher arquivo",
     "textButtonSend": "Enviar",
     "titleResult": "Resultado",
     "titleCopyToWord": "Copie para Word",
     "textCopyButton": "Copiar",
-    "footerText": "&copy; 2024 React2Word. Todos os direitos reservados."
-}
+    "footerText": "&copy; 2024 React2Word. Todos os direitos reservados.",
+    "instructions": [
+        "Abra o Excel ou um software similar",
+        "Insira os componentes de cada reação química em linhas separadas.",
+        "Na primeira coluna, insira o coeficiente estequiométrico; na segunda coluna, insira a fórmula molecular.",
+        "Indique o valor negativo do coeficiente para reagentes e positivo para produtos.",
+        "Organize as reações em sequência, listando os componentes em linhas consecutivas, conforme abaixo.",
+        "Após, salve o arquivo no formato CSV."
+      ],
+      "errors": {
+        "serverErrors":{
+        "500": "Falha no servidor, tente novamente.",
+        "415": "Arquivo inválido. Envie um arquivo CSV válido. Verifique as instruções.",
+        "400": "Solicitação inválida, verifique os reagentes e produtos da reação e tente novamente."
+      },
+      "frontErrors": {
+        "emptyValues": "Insira os reagentes e produtos de uma reação ou envie um arquivo CSV válido, que pode conter uma ou mais reações.",
+        "formatInvalid": "O formato de arquivo é inválido. Envie um arquivo no formato CSV válido."
+      }
+    }
+
+} 
