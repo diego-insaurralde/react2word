@@ -69,7 +69,8 @@ const submitReaction = async(e) =>  {
 function copyToClipboard() {
     var copyText = document.getElementById("reaction-clipboard");
     copyText.select();
-    navigator.clipboard.writeText(copyText.value);    
+    //navigator.clipboard.write(copyText.value);    
+    document.execCommand("copy");
 }
 
 const postReaction = async function(data){
